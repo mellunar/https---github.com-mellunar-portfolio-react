@@ -1,0 +1,78 @@
+.about {
+  width: 100%;
+  display: flex;
+}
+.about-img {
+  display: flex;
+  align-items: center;
+}
+.about-img img {
+  width: 100%;
+  pointer-events: none;
+  user-select: none;
+}
+.about-txt {
+  text-align: justify;
+}
+.about-txt p {
+  margin-top: 10px;
+}
+.skills {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.skills-div {
+  margin: 10px;
+}
+.skills-div h3 {
+  text-align: center;
+  margin-top: 5px;
+  font-weight: 500;
+  font-size: 16px;
+}
+.skills-icon {
+  height: 100px;
+  width: 100px;
+  color: #fff;
+  background: var(--green8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+.skills-icon svg {
+  height: 70px;
+}
+.portfolio-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 769px) {
+  .about-img {
+    width: 25%;
+    margin: 0 10px;
+  }
+  .about-txt {
+    width: 75%;
+    margin: 0 10px;
+  }
+}
+@media (max-width: 768px) {
+  .about {
+    flex-direction: column;
+  }
+  .about-img {
+    width: 100%;
+  }
+  .about-txt {
+    width: 100%;
+  }
+  .about-txt p:nth-of-type(1), .about-img {
+    margin-top: 10px;
+  }
+}

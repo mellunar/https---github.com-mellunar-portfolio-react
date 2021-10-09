@@ -1,0 +1,39 @@
+.home-header {
+  width: 100%;
+  margin: 100px auto;
+  text-align: center;
+}
+.home-avatar {
+  pointer-events: none;
+  user-select: none;
+  width: 138px;
+  height: 138px;
+  border-radius: 50%;
+  background: var(--module);
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+.home-avatar img {
+  width: 128px;
+  border-radius: 50%;
+}
+.home-p1 {
+  font-size: 22px;
+}
+.home-p2 {
+  font-size: 22px;
+  font-weight: 500;
+}
+.home-name {
+  font-size: 48px;
+}
+.home-contacts {
+  font-size: 26px;
+  margin-top: 15px;
+}
+.home-contacts a:not(:nth-of-type(1)) {
+  margin-left: 25px;
+}

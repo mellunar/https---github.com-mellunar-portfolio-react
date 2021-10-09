@@ -1,0 +1,118 @@
+.linkfill {
+  display: block;
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+}
+.portfolio-item {
+  position: relative;
+  padding: 10px;
+}
+.portfolio-item-link, .portfolio-item-link:hover {
+  color: var(--text);
+}
+.portfolio-item img {
+  width: 100%;
+  pointer-events: none;
+  user-select: none;
+  display: block;
+}
+.portfolio-item-container {
+  position: relative;
+  clip-path: inset(0px round 15px);
+}
+.portfolio-item-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  clip-path: inset(0px round 15px);
+}
+.portfolio-item-container:hover::before {
+  content: '';
+  background-color: rgba(0,0,0,.15);
+}
+.portfolio-item-info {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 11;
+}
+.portfolio-item-subinfo {
+  position: relative;
+  display: flex;
+  z-index: 12;
+}
+.portfolio-item-title {
+  margin-top: 5px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 20px;
+}
+.portfolio-item-icon-build, .portfolio-item-icon-code {
+  width: 32px;
+  height: 32px;
+  background: var(--link);
+  border-radius: 50%;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 15;
+  cursor: pointer;
+}
+.portfolio-item-icon-code {
+  margin-left: 40px;
+}
+.portfolio-item-icon-build:hover, .portfolio-item-icon-code:hover {
+  box-shadow: 0 0 0 3px var(--outline);
+}
+.portfolio-item-icon-build svg {
+  height: 18px;
+}
+.portfolio-item-build, .portfolio-item-code {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  color: var(--text);
+  background: var(--background);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 3px;
+  border-radius: 6px;
+  filter: drop-shadow(0px 0px 3px #000);
+  display: none;
+}
+.portfolio-item-build::after, .portfolio-item-code::after {
+  content: '';
+  position: absolute;
+  top: 23px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-top: 5px solid black;
+  border-top-color: var(--background); 
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent; 
+}
+.portfolio-item-icon-build:hover .portfolio-item-build, .portfolio-item-icon-code:hover .portfolio-item-code {
+  display: block;
+}
+
+@media (min-width: 769px) {
+  .portfolio-item {
+    width: 20%;
+  }
+}
+@media (max-width: 768px) {
+  .portfolio-item {
+    width: 33.333%;
+  }
+}
+@media (max-width: 599px) {
+  .portfolio-item {
+    width: 50%;
+  }
+}

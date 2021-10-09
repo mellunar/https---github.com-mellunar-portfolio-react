@@ -1,0 +1,120 @@
+.topnav {
+  margin: 0 0 20px;
+  background: var(--module);
+  width: 100%;
+  height: 60px;
+  border-radius: 0 0 15px 15px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  position: relative;
+  z-index: 999;
+}
+.topnav-pagelist {
+  list-style: none;
+}
+.topnav-item, .topnav-link {
+  color: var(--text);
+}
+.topnav-item:hover, .topnav-link:hover {
+  color: var(--link);
+}
+.topnav-item {
+  text-transform: capitalize;
+}
+.topnav-item-selected {
+  color: var(--link);
+}
+.topnav-button {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: unset;
+  background: var(--link);
+  color: #fff;
+  border-radius: 6px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  margin-left: 10px;
+}
+.topnav-button:hover {
+  box-shadow: 0 0 0 3px var(--outline);
+}
+.topnav-button-menu {
+  font-size: 27px;
+  margin-left: 0;
+  display: block;
+}
+.menu-opened {
+  overflow: hidden;
+}
+
+@media (min-width: 1024px) {
+  .mobonly {
+    display: none;
+  }
+  .topnav-pagelist {
+    display: flex;
+    margin-left: auto;
+    font-weight: 500;
+  }
+  .topnav-item {
+    padding: 1.25rem;
+    position: relative;
+  }
+  .topnav-item-selected::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    background: var(--link);
+  }
+}
+@media (max-width: 1023px) {
+  .margin-left-auto {
+    margin-left: auto;
+  }
+  .topnav-logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .topnav-pagelist {
+    position: absolute;
+    top: 0px;
+    left: -10px;
+    background: rgba(0,0,0,.9);
+    width: 100vw;
+    z-index: 998;
+    text-align: center;
+    transition: all ease 200ms;
+  }
+  [data-menu='closed']{
+    height: 0;
+    overflow: hidden;
+  }
+  [data-menu='opened']{
+    padding-top: 4rem;
+    height: 100vh;
+    overflow-y: auto;
+  }
+  .topnav-item {
+    display: block;
+    padding: 1rem 0;
+    font-size: 22px;
+    color: #fff;
+  }
+  .topnav-pagelist-close {
+    color: #fff;
+    border: unset;
+    background: unset;
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    font-size: 25px;
+  }
+}
