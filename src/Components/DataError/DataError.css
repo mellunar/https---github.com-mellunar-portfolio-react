@@ -1,0 +1,19 @@
+.component-data-error {
+  max-width: 350px;
+  padding: 20px 0;
+}
+.component-data-error img {
+  width: 100%;
+  pointer-events: none;
+  user-select: none;
+}
+.component-data-error h3 {
+  margin-top: 10px;
+  font-size: 24px;
+  font-weight: 500;
+  text-align: center;
+}
+.component-data-error p {
+  text-align: center;
+  margin-top: 5px;
+}

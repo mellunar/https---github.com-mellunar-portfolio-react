@@ -64,6 +64,12 @@ button {
   white-space: nowrap;
 }
 
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 @media (max-width: 1320px) {
   body {
     margin: 0 10px;

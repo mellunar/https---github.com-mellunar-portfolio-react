@@ -19,6 +19,7 @@ function TopNav(){
 
   useEffect(()=>{
     pageSelector();
+    if(status !== 'opened'){closeMenu()};
   }, [location.pathname]);
 
   useEffect(()=>{

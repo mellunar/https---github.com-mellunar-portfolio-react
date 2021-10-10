@@ -1,0 +1,11 @@
+.bio-container {
+  max-width: 800px;
+  margin: auto;
+  text-align: justify;
+}
+.bio-container img {
+  width: 100%;
+}
+.bio-container p {
+  margin-top: 10px;
+}

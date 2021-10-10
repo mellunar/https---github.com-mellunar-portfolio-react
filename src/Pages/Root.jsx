@@ -1,7 +1,8 @@
 import React from 'react';
 import {BrowserRouter as Router, Switch, Route, Redirect} from "react-router-dom";
 import PageHomepage from './Home/Homepage';
-import PageBio from './Bio/Biografia';
+import PageBio from './Bio/Bio';
+import PagePortfolio from './Portfolio/PagePortfolio';
 import PageNotFound from './404/NotFound';
 import i18next from '../i18n';
 
@@ -12,6 +13,7 @@ function Root() {
       <Switch>
         <Route path="/" exact component={PageHomepage} />
         <Route path="/bio" component={PageBio} />
+        <Route path="/portfolio" component={PagePortfolio} />
         <Route path="/404" component={PageNotFound} />
         <Route path="*"><Redirect to='/404'/></Route>
       </Switch>

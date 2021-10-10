@@ -7,17 +7,18 @@ import Translator from '../../Components/Translator';
 import Markdown from 'markdown-to-jsx';
 import PageMain from '../../Components/UI/PageMain/PageMain';
 import PageSection from '../../Components/UI/PageSection/PageSection';
-import PortfolioItem from '../../Components/UI/PortfolioItem/PortfolioItem';
+import PortfolioItem from '../../Components/PortfolioItem/PortfolioItem';
 import dreamer from '../../Resources/undraw-dreamer.png';
 import './Homepage.css';
 import {useIcon} from '../../Utils/useIcon.jsx';
 import { skills } from '../../Utils/icons';
 import useFirebase from '../../Firebase/useFirebase';
+import DataLoading from '../../Components/DataLoading/DataLoading';
+import DataError from '../../Components/DataError/DataError';
 
 function PageHomepage() {
   const {t} = useTranslation();
   const [firebaseData] = useFirebase(5);
-  const img = 'https://bn02pap001files.storage.live.com/y4mCJW3BLr_oemHtidZCZbvksY1oCRznBAxW_eFotBnOKX7TowkylvSHmcq6xH_FH5HNapl46U_R5aIkTKJBJKmi3ygblt8kH9D-mTMRSU-Ao7Mf777G75DKEKTRZD7rjOg1GE7H9mWZ6_6I03PxiTk8dIyXe2ogCDP5pQ-LirVBqHNfBmbz9NZwYxN4TZQed1h?width=667&height=1000&cropmode=none';
 
   useEffect(()=>{
     document.title = 'Melissa Fernandes - Front End Dev';
@@ -43,10 +44,12 @@ function PageHomepage() {
         <PageSection>
           <h2><Translator str='home.title3' /></h2>
           <div className='portfolio-container'>
-            {firebaseData.length === 0 && <p>Carregando...</p>}
+            {!firebaseData || firebaseData.length === 0 && <DataLoading />}
             {firebaseData.map((item) => 
               <PortfolioItem key={item.id} title={item.data.title} img={item.data.img} live={item.data.live} icon={useIcon(item.data.icon)} build={item.data.build} code={item.data.code} />
             )}
+            {firebaseData.length > 0 && <Markdown className='portfolio-p' children={t('home.portfolio')} options={{forceBlock: true, overrides: {Link: {component: Link,},},}} />}
+            {firebaseData === undefined && <DataError />}
           </div>
         </PageSection>
       </PageMain>
