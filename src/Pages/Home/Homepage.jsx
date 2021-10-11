@@ -7,14 +7,12 @@ import Translator from '../../Components/Translator';
 import Markdown from 'markdown-to-jsx';
 import PageMain from '../../Components/UI/PageMain/PageMain';
 import PageSection from '../../Components/UI/PageSection/PageSection';
-import PortfolioItem from '../../Components/PortfolioItem/PortfolioItem';
 import dreamer from '../../Resources/undraw-dreamer.png';
 import './Homepage.css';
 import {useIcon} from '../../Utils/useIcon.jsx';
 import { skills } from '../../Utils/icons';
 import useFirebase from '../../Firebase/useFirebase';
-import DataLoading from '../../Components/DataLoading/DataLoading';
-import DataError from '../../Components/DataError/DataError';
+import PortfolioGallery from '../../Components/PortfolioGallery/PortfolioGallery';
 
 function PageHomepage() {
   const {t} = useTranslation();
@@ -43,14 +41,7 @@ function PageHomepage() {
         </PageSection>
         <PageSection>
           <h2><Translator str='home.title3' /></h2>
-          <div className='portfolio-container'>
-            {!firebaseData || firebaseData.length === 0 && <DataLoading />}
-            {firebaseData.map((item) => 
-              <PortfolioItem key={item.id} title={item.data.title} img={item.data.img} live={item.data.live} icon={useIcon(item.data.icon)} build={item.data.build} code={item.data.code} />
-            )}
-            {firebaseData.length > 0 && <Markdown className='portfolio-p' children={t('home.portfolio')} options={{forceBlock: true, overrides: {Link: {component: Link,},},}} />}
-            {firebaseData === undefined && <DataError />}
-          </div>
+          <PortfolioGallery source={firebaseData} />
         </PageSection>
       </PageMain>
     </Container>
