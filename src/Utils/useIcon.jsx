@@ -10,7 +10,7 @@ export function useIcon(icon){
   switch (icon){
     case 'angular': return createSVG("0 0 448 512", angularPath);
     case 'css': return createSVG("0 0 384 512", cssPath);
-    case 'html': return createSVG("0 0 384 512", htmlPath);
+    case 'html5': return createSVG("0 0 384 512", htmlPath);
     case 'javascript': return createSVG("0 0 448 512", jsPath);
     case 'react': return createSVG("0 0 512 512", reactPath);
     case 'svelte': return createSVG("0 0 32 32", sveltePath);
